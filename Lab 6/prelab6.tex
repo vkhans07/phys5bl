@@ -1,0 +1,34 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate,tikz}
+
+\def\Name{Vijay Hans}  % Your name
+\def\SID{3041285081}  % Your student ID number
+\def\Prelab{6} % Number of Prelab
+\def\Session{Spring 2026}
+\def\Cls{PHYS 5BL}
+\title{\Cls--Spring 2026 --- Prelab \Prelab \ Response}
+\author{\Name, SID \SID}
+\markboth{\Cls -- \Session\  Prelab \Prelab \ \Name}{\Cls -- \Session\ Prelab \Prelab\ \Name}
+\pagestyle{myheadings}
+\date{\today}
+
+\newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
+\def\endproofmark{$\Box$}
+\newenvironment{proof}{\par{\bf Proof}:}{\endproofmark\smallskip}
+
+\textheight=9in
+\textwidth=6.5in
+\topmargin=-.75in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+\setlength{\parindent}{0pt}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    \item $I = \frac{1}{8}{M}{D^2}$ \\ $\sigma_I/I = \sqrt{(\sigma_M/M)^2 + (2\cdot \sigma_D/D)^2}$ \\ $\sigma_I = I\sqrt{(\sigma_M/M)^2 + 4(\sigma_D/D)^2}$
+    \item We have $2n$ total measurements ($n$ $x$ values and $n$ $y$ values). Given that we're seeking to model $y$ from $x$, we need to measure $n+2$ parameters: $a$, $b$, and each of the true values of $x$. Thus the number of degrees of freedom is $2n - (n+2)$ = $n-2$.
+    \item Assuming the errors were normally distributed, taking the log of both sides would mean that the errors are no longer normally distributed and thus we're not really minimizing the errors as much as we are minimizing a transformation of the errors. Also, because logarithms are non-linear, a logarithmic transformation on heteroscedastic errors will result in errors which are no longer heteroscedastic.
+\end{enumerate}
+
+\end{document}

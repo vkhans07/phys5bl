@@ -1,0 +1,106 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate}
+
+\def\Name{Vijay Hans}  % Your name
+\def\SID{3041285081}  % Your student ID number
+\def\PreLab{2} % Number of Homework
+\def\Session{Spring 2026}
+\def\Cls{PHYS 5BL}
+\title{\Cls--Spring 2026 --- Pre-Lab \PreLab \ Response}
+\author{\Name, SID \SID}
+\markboth{\Cls -- \Session\  Pre-Lab \PreLab\ \Name}{\Cls -- \Session\ Pre-Lab \PreLab\ \Name}
+\pagestyle{myheadings}
+\date{\today}
+
+\newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
+\def\endproofmark{$\Box$}
+\newenvironment{proof}{\par{\bf Proof}:}{\endproofmark\smallskip}
+
+\textheight=9in
+\textwidth=6.5in
+\topmargin=-.75in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    \item Fiat Lux.
+    \item \begin{enumerate}[(i)]
+              \item $u = f((x, z)^T) $ \\ $\implies \overline{u}
+                        \approx f((\overline{x}, \overline{z})^T) + \frac{1}{2} \text{Tr}[H\Sigma_{(x, z)^T}]$ \\
+                    $f((\overline{x}, \overline{z})^T) = \overline{x} \overline{z}$, $H = \begin{bmatrix}
+                            0 & 1 \\
+                            1 & 0 \\
+                        \end{bmatrix}$,
+                    $\Sigma_{(x,z)^T} = \begin{bmatrix}
+                            \sigma_x^2 & Cov(x,z)   \\
+                            Cov(x,z)   & \sigma_z^2 \\
+                        \end{bmatrix}$ \\
+                    $\implies \overline{u} \approx \overline{x} \overline{z} + Cov(x,z)$ \\
+                    $\Sigma_{u} \approx J \Sigma_{\boldsymbol{x}} J^T$ \\
+                    $J = \begin{bmatrix}
+                            \overline{z} & \overline{x} \\
+                        \end{bmatrix}$ \\
+                    $\implies \Sigma_u = \overline{z}^2 \sigma_x^2 + 2\overline{x} \overline{z} Cov(x,z)
+                        + \overline{x}^2 \sigma(z)^2$
+              \item $f(\overline{x}, \overline{z}) = \frac{\overline{x}}{\overline{z}}$,
+                    $H = \begin{bmatrix}
+                            0              & -\frac{1}{z^2} \\
+                            -\frac{1}{z^2} & \frac{2x}{y^3} \\
+                        \end{bmatrix}$,
+                    $\Sigma_{(x,z)^T} = \begin{bmatrix}
+                            \sigma_x^2 & Cov(x,z)   \\
+                            Cov(x,z)   & \sigma_z^2 \\
+                        \end{bmatrix}$ \\
+                    $\implies \overline{u} = \frac{\overline{x}}{\overline{z}} - \frac{Cov(x,z)}{z^2} + \frac{x \sigma_z^2}{y^3}$
+                    $\Sigma_{v} \approx J \Sigma_{\boldsymbol{x}} J^T$ \\
+                    $J = \begin{bmatrix}
+                            \frac{1}{\overline{z}} & -\frac{\overline{x}}{\overline{z}^2} \\
+                        \end{bmatrix}$ \\
+                    $\implies \Sigma_v \approx \frac{\sigma_x^2}{\overline{z}^2} - \frac{2\overline{x} Cov(x,z)}{\overline{z^3}} + \frac{\overline{x}^2 \sigma_z^2}{\overline{z}^4}$
+              \item If we let $y = [xz \hspace{2mm} x/z]^T$, then $\Sigma_y$ will be:
+                    \[\Sigma_y = \begin{bmatrix}
+                            \sigma_u^2 & Cov(u,v)   \\
+                            Cov(u,v)   & \sigma_v^2 \\
+                        \end{bmatrix}\]
+                    $J = \begin{bmatrix}
+                            \frac{\partial u}{\partial x} & \frac{\partial u}{\partial z} \\
+                            \frac{\partial v}{\partial x} & \frac{\partial v}{\partial z} \\
+                        \end{bmatrix} =
+                        \begin{bmatrix}
+                            \overline{z}           & \overline{x}                         \\
+                            \frac{1}{\overline{z}} & -\frac{\overline{x}}{\overline{z}^2} \\
+                        \end{bmatrix}$, so:
+                    \begin{align*}
+                        \Sigma_y & \approx J \Sigma_{(x,z)^T} J^T                                                                                                  \\                                                                                                \\
+                                 & \approx \begin{bmatrix}
+                                               \overline{z}           & \overline{x}                         \\
+                                               \frac{1}{\overline{z}} & -\frac{\overline{x}}{\overline{z}^2} \\
+                                           \end{bmatrix} \begin{bmatrix}
+                                                             \sigma_x^2 & Cov(x,z)   \\
+                                                             Cov(x,z)   & \sigma_z^2 \\
+                                                         \end{bmatrix} \begin{bmatrix}
+                                                                           \overline{z}           & \overline{x}                         \\
+                                                                           \frac{1}{\overline{z}} & -\frac{\overline{x}}{\overline{z}^2} \\
+                                                                       \end{bmatrix}^T \\
+                    \end{align*}
+                    We only care about $\Sigma_{y 21}$, which is:
+                    \[\begin{align*}
+                            \text{Cov}(u, v) & \approx \begin{bmatrix} \bar{z} & \bar{x} \end{bmatrix}
+                            \begin{bmatrix} \sigma_x^2 & Cov(x,z) \\ Cov(x,z) & \sigma_z^2 \end{bmatrix}
+                            \begin{bmatrix} \frac{1}{\bar{z}} \\ -\frac{\bar{x}}{\bar{z}^2} \end{bmatrix}                                                                                \\
+                                             & = \begin{bmatrix} (\bar{z}\sigma_x^2 + \bar{x}Cov(x,z)) & (\bar{z}Cov(x,z) + \bar{x}\sigma_z^2) \end{bmatrix}
+                            \begin{bmatrix} \frac{1}{\bar{z}} \\ -\frac{\bar{x}}{\bar{z}^2} \end{bmatrix}                                                                                \\
+                                             & = \left( \bar{z}\sigma_x^2 + \bar{x}Cov(x,z) \right) \left( \frac{1}{\bar{z}} \right) + \left( \bar{z}Cov(x,z) + \bar{x}\sigma_z^2 \right) \left( -\frac{\bar{x}}{\bar{z}^2} \right)   \\
+                                             & = \left( \frac{\bar{z}\sigma_x^2}{\bar{z}} + \frac{\bar{x}Cov(x,z)}{\bar{z}} \right) - \left( \frac{\bar{x}\bar{z}Cov(x,z)}{\bar{z}^2} + \frac{\bar{x}^2\sigma_z^2}{\bar{z}^2} \right) \\
+                                             & = \sigma_x^2 + \frac{\bar{x}}{\bar{z}}Cov(x,z) - \frac{\bar{x}}{\bar{z}}Cov(x,z) - \frac{\bar{x}^2}{\bar{z}^2}\sigma_z^2                                                               \\
+                                             & = \sigma_x^2 - \frac{\bar{x}^2}{\bar{z}^2}\sigma_z^2
+                        \end{align*} \]
+          \end{enumerate}
+    \item \hspace{5cm} \\ \includegraphics[scale=0.5]{Screenshot 2026-01-28 115531.png}
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,35 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate,tikz}
+
+\def\Name{Vijay Hans}  % Your name
+\def\SID{3041285081}  % Your student ID number
+\def\Prelab{7} % Number of Prelab
+\def\Session{Spring 2026}
+\def\Cls{PHYS 5BL}
+\title{\Cls--Spring 2026 --- Prelab \Prelab \ Response}
+\author{\Name, SID \SID}
+\markboth{\Cls -- \Session\  Prelab \Prelab \ \Name}{\Cls -- \Session\ Prelab \Prelab\ \Name}
+\pagestyle{myheadings}
+\date{\today}
+
+\newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
+\def\endproofmark{$\Box$}
+\newenvironment{proof}{\par{\bf Proof}:}{\endproofmark\smallskip}
+
+\textheight=9in
+\textwidth=6.5in
+\topmargin=-.75in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+\setlength{\parindent}{0pt}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+    \item We have $\ddot{x} + \beta \dot{x} + \omega^2 x = 0$. Overdamping means our solutions to the equation are real negative exponentials; that is, $\beta^2 > 4\omega^2$ and our solution is $c_1 e^{r_1} + c_2 e^{r_2}$ where $r_1, r_2 = \frac{-\beta \pm \sqrt{\beta^2 - 4\omega^2}}{2}$. As these functions are assuredly exponentials of negative reals, the function is necessarily one-to-one and can only pass through any given point (including the equilibrium point) once.
+    \item \begin{qparts}
+              \item In an underdamped oscillator, $\beta^2 < 4\omega^2$ and our general solution follows $Ae^{-\alpha t} \cos(\omega t) + Be^{-\alpha t} \sin (\omega t)$. This is equivalent to $C e^{-\alpha t} \cos(\omega t + \phi)$ for initial amplitude $C = \sqrt{A^2 + B^2}$ and phase shift $\phi = \arctan{\frac{B}{A}}$. The only component capable of equalling zero is the $\cos(\omega t)$ term, so the zero crossings will be wholly determined by the sinusoidal part of the solution. Alternatively phrased, $Ae^{-\alpha t}$ is always real so only the $\cos(\omega t)$ is capable of determining the argument of the solution, and thus the solution will cross zeroes when the sinusoidal part of the solution does. However, a zero crossing occurs every half-period.
+              \item Yes, they represent the "far" and "close" parts of the oscillatory path as it decays, and occur once every period.
+          \end{qparts}
+\end{enumerate}
+\end{document}
