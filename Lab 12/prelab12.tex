@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate,tikz}
+
+\def\Name{Vijay Hans}  % Your name
+\def\SID{3041285081}  % Your student ID number
+\def\Prelab{12} % Number of Prelab
+\def\Session{Spring 2026}
+\def\Cls{PHYS 5BL}
+\title{\Cls--Spring 2026 --- Prelab \Prelab \ Response}
+\author{\Name, SID \SID}
+\markboth{\Cls -- \Session\  Prelab \Prelab \ \Name}{\Cls -- \Session\ Prelab \Prelab\ \Name}
+\pagestyle{myheadings}
+\date{\today}
+
+\newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
+\def\endproofmark{$\Box$}
+\newenvironment{proof}{\par{\bf Proof}:}{\endproofmark\smallskip}
+
+\textheight=9in
+\textwidth=6.5in
+\topmargin=-.75in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+\setlength{\parindent}{0pt}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+    \item \begin{enumerate}[(i)]
+              \item In the first situation, the induced EMF opposes the change in magnetic flux by Faraday's Law, which will cause a current flow. In the second situation, each moving charge responds to the magnetic field, accelerated by $q(-\vec{v}) \times \vec{B}$.
+              \item If we switch reference frames in situation 1 so that the magnet is stationary, we arrive at situation 2. But the laws of physics shouldn't change when switching between inertial reference frames; the current is moving (essentially) perpendicular to $\vec{v}$, we must have that the current is precisely the same in both frames.
+          \end{enumerate}
+    \item Armin Loftman, Forrest Chou, Vijay Hans: Using two large metal sheets with a small separation, we hope to measure the permittivity of free space. To this end we will place known dielectrics between them to discretely vary the separation and fit our results to $C = \frac{\varepsilon_0 \varepsilon_r A}{d}$ (with potential modifications as necessary, see Kirchoff's equation for circular capacitors). We intend on measuring capacitance using a DMM or by connecting our homemmade capacitor to an RC circuit with a known resistor and extracting the time constant. We would record a high density of datapoints at small distances to model a traditional capacitor; for further exploration we may take data at larger distances to explore edge effects. For materials we'd expect to need \begin{itemize}
+              \item two large sheets of some metal of high conductance
+              \item significant number of thin dielectric sheets that we can stack to create varying thicknesses
+              \item function generator
+              \item oscilloscope
+              \item known resistors
+              \item breadboard
+              \item DMM
+          \end{itemize}
+\end{enumerate}
+\end{document}
