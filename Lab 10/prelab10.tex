@@ -1,0 +1,49 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate,tikz}
+
+\def\Name{Vijay Hans}  % Your name
+\def\SID{3041285081}  % Your student ID number
+\def\Prelab{10} % Number of Prelab
+\def\Session{Spring 2026}
+\def\Cls{PHYS 5BL}
+\title{\Cls--Spring 2026 --- Prelab \Prelab \ Response}
+\author{\Name, SID \SID}
+\markboth{\Cls -- \Session\  Prelab \Prelab \ \Name}{\Cls -- \Session\ Prelab \Prelab\ \Name}
+\pagestyle{myheadings}
+\date{\today}
+
+\newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
+\def\endproofmark{$\Box$}
+\newenvironment{proof}{\par{\bf Proof}:}{\endproofmark\smallskip}
+
+\textheight=9in
+\textwidth=6.5in
+\topmargin=-.75in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+\setlength{\parindent}{0pt}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+    \item
+          The voltage in a discharging RC circuit is $V(t) = V_0 e^{-t/RC}$.
+          Since the energy stored in a capacitor is $U = \frac{1}{2}CV^2$, plugging in $V(t)$ gives:
+          \[ U(t) = \frac{1}{2}C \left(V_0 e^{-t/RC}\right)^2 = U_0 e^{-2t/RC} \]
+          Based on the exponent, the characteristic decay time-scale for the energy is $\tau = RC/2$.
+
+    \item
+          To estimate the RC time constant, use a non-linear least squares fit on the model $V(t) = V_0 e^{-t/RC}$. Since there are errors in both variables, we'll have to make corrections as described in Lab 4.
+
+          To get an initial guess for the parameters, linearize the equation by taking the natural log:
+          \[ \ln(V) = \ln(V_0) - \frac{t}{RC} \]
+          Run a simple linear regression on the $(t_i, \ln(V_i))$ data. Your initial guess for $RC$ will be $-1/\text{slope}$, and $V_0$ will be $e^{\text{y-intercept}}$.
+
+    \item
+          \textbf{Idea 1 (Electric Circuits/Machine Learning):} Use a Physics-Informed Neural Network (PINN) to model an underdamped RLC circuit. We'd take noisy data from an oscilloscope and use the PINN to figure out the unknown R, L, and C parameters by baking the governing differential equation straight into the loss function.
+
+          \textbf{Idea 2 (Mechanics/Waves):} Record a video of coupled pendulums swinging and use tracking software (like OpenCV or Tracker) to get the position vs. time data. We can then run an FFT on the data to extract the normal mode frequencies and compare them to theory.
+
+\end{enumerate}
+\end{document}

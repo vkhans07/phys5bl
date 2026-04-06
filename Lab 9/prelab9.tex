@@ -1,0 +1,38 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate,tikz}
+
+\def\Name{Vijay Hans}  % Your name
+\def\SID{3041285081}  % Your student ID number
+\def\Prelab{9} % Number of Prelab
+\def\Session{Spring 2026}
+\def\Cls{PHYS 5BL}
+\title{\Cls--Spring 2026 --- Prelab \Prelab \ Response}
+\author{\Name, SID \SID}
+\markboth{\Cls -- \Session\  Prelab \Prelab \ \Name}{\Cls -- \Session\ Prelab \Prelab\ \Name}
+\pagestyle{myheadings}
+\date{\today}
+
+\newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
+\def\endproofmark{$\Box$}
+\newenvironment{proof}{\par{\bf Proof}:}{\endproofmark\smallskip}
+
+\textheight=9in
+\textwidth=6.5in
+\topmargin=-.75in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+\setlength{\parindent}{0pt}
+\begin{document}
+\maketitle
+\begin{enumerate}
+    \item \begin{qparts}
+              \item A standard sinusoid is perfectly symmetrical, so we expect the time-averaged voltage to be 0.
+              \item Calculating the root mean square: $$V_{rms} = \sqrt{\frac{1}{2\pi} \int^{2\pi}_0 V_0^2 \cos^2(\omega t)} = \frac{V_0}{\sqrt{2}}$$ so $V_p = \sqrt{2} V_{rms}$.
+              \item Peak-to-peak will be $2V_p = 2\sqrt{2} V_0$.
+          \end{qparts}
+    \item \begin{qparts}
+              \item The impedance of a capacitor is $\frac{1}{\omega C}$, so at low frequencies the impedance will be very high and at high frequencies the impedance will be very low. Thus to only let high frequencies through, we ought to place the resistor downstream of the capacitor. At high frequencies the capacitor will short the resistor, so current will flow uninterrupted to the output point. At low frequencies the capacitor will function as an open switch and current will not flow.
+              \item By similar logic, if we have the capacitor follow the resistor, it will create a low-pass filter. For low frequencies the capacitor will function as an open switch (very high impedance), so the current will be effectively uninterrupted from the input to the output. At high frequencies the capacitor will short the circuit.
+          \end{qparts}
+\end{enumerate}
+\end{document}

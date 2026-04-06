@@ -1,0 +1,40 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate,tikz}
+
+\def\Name{Vijay Hans}  % Your name
+\def\SID{3041285081}  % Your student ID number
+\def\Prelab{11} % Number of Prelab
+\def\Session{Spring 2026}
+\def\Cls{PHYS 5BL}
+\title{\Cls--Spring 2026 --- Prelab \Prelab \ Response}
+\author{\Name, SID \SID}
+\markboth{\Cls -- \Session\  Prelab \Prelab \ \Name}{\Cls -- \Session\ Prelab \Prelab\ \Name}
+\pagestyle{myheadings}
+\date{\today}
+
+\newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
+\def\endproofmark{$\Box$}
+\newenvironment{proof}{\par{\bf Proof}:}{\endproofmark\smallskip}
+
+\textheight=9in
+\textwidth=6.5in
+\topmargin=-.75in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+\setlength{\parindent}{0pt}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+
+    \item \begin{enumerate}[(i)]
+              \item The power delivered to a transverse string is the product of transverse force and transverse velocity: \[P = Fv = \left(-T\frac{\partial\psi}{\partial x}\right)\left(\frac{\partial\psi}{\partial t}\right)\] In the absence of damping, we can take $\psi = A \sin(kx) \cos(\omega t)$, where $k = 2\pi / \lambda$. Then we have $\psi_x = Ak \cos(kx) \cos(\omega)t$ and $\psi_t = -A\omega \sin(kx) \sin(\omega t)$, so our product becomes \[Fv = TA^2k\omega \sin(kx)\cos(kx) \sin(\omega t) \cos(\omega t)\] which we can simplify by using $\sin(2\theta) = 2\sin(\theta) \cos (\theta)$ to get \[P = \frac{1}{4}TA^2 k \omega \sin(2kx) \sin(2 \omega t) \] Substituting $k = 2\pi/\lambda$: \[P = \frac{\pi}{2\lambda}TA^2 \omega \sin(4\pi x/\lambda) \sin(2 \omega t) \] Most accurately, the instantaneous power required to sustain the standing wave will be this expression evaluated at the point $x=L$ where the force is applied, giving: \[P = \frac{\pi}{2\lambda}TA^2 \omega \sin(4\pi L/\lambda) \sin(2 \omega t) \]
+              \item If we integrate over a full cycle, the $\sin (2 \omega t)$ term goes to 0, and thus the time-averaged power necessarily is 0. In an undamped setting this makes intuitive sense, as the driving force would have to be in line with the motion for half the cycle and against the motion for half the cycle, so by a symmetry argument the total work done would be 0.
+          \end{enumerate}
+    \item \begin{enumerate}
+              \item Measuring Planck's Constant with LED I-V Curves: Building on non-linear circuit idea. Photons emitted by an LED have energy $E = hf$, where $f$ is the frequency of light (color). That energy comes from electrons dropping across the junction voltage, so $E = eV_{\text{threshold}}$. Setting them equal: $hf = eV \implies V = (h/e)f$. So if you plot threshold voltage vs.\ frequency across multiple LED colors, the slope is literally $h/e$, and since $e$ is known you extract $h$. The ``threshold'' is the knee of the I-V curve where the diode starts conducting meaningfully. In practice I'd sweep voltage across each LED with the function generator or a DC supply, measure current via voltage drop across a series resistor on the oscilloscope, identify the knee, and record $V_{\text{threshold}}$. Do this for 4-5 LED colors (UV through red), plot $V$ vs $f$, linear fit gives $h/e$.
+
+              \item Dropping Magnets to Measure Conductivity: When the magnet falls through a conducting pipe, the changing magnetic flux induces eddy currents in the walls which by Lenz's law oppose the motion, creating a velocity-dependent retarding force. At terminal velocity $mg = bv_t$, where the drag coefficient $b$ scales with the pipe's conductivity $\sigma$, wall thickness, and magnet geometry, meaning more conductive pipes produce slower terminal velocities. The theoretical relationship between $b$ and $\sigma$ is nontrivial (involves integrating the eddy current distribution over the pipe geometry) but well-derived in literature, giving you a real quantitative framework to compare against. For measurement you'd just use a stopwatch or photogate timing at the pipe exit to get $v_t$ across copper, aluminum, and a PVC control; multiple pipe lengths give you a nice check on whether terminal velocity has actually been reached. The staged structure writes itself: Stage 1 qualitatively confirms the effect and validates your setup, Stage 2 extracts $b$ from timing data for each material and compares $\sigma_{\text{copper}}/\sigma_{\text{aluminum}}$ to the known tabulated ratio ($\sim$1.7), and Stage 3 could vary pipe wall thickness or magnet strength to test how $b$ scales with those parameters.
+          \end{enumerate}
+\end{enumerate}
+\end{document}
